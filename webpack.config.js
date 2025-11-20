@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/main.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
     clean: true,
-    publicPath: '/ubo_phase3_onboarding/'
+    publicPath: argv.mode === 'production' ? '/ubo_phase3_onboarding/' : '/'
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx']
@@ -40,6 +40,6 @@ module.exports = {
     hot: true,
     open: true
   }
-};
+});
 
 

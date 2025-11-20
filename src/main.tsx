@@ -6,9 +6,12 @@ import './index.css'
 import './styles/components.css'
 import './styles/animations.css'
 
+// Use basename only in production (GitHub Pages)
+const basename = process.env.NODE_ENV === 'production' ? '/ubo_phase3_onboarding' : '/';
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/ubo_phase3_onboarding">
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
